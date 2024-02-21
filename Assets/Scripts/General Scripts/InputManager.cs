@@ -27,9 +27,11 @@ public class InputManager : MonoBehaviour{
 
     private void Awake() {
         Instance = this;
+        inputActions = new PlayerInputActions();
     }
 
     private void Start() {
+        
         inputActions.Spider.Disable();
         inputActions.Player.Enable();
 
@@ -40,9 +42,10 @@ public class InputManager : MonoBehaviour{
         inputActions.Player.Submit.performed += Submit_performed;
         inputActions.Player.SwitchToSpider.performed += SwitchToSpider_performed;
 
-
-        inputActions.Spider.SwitchToHuman.performed += SwitchToHuman_performed;
-        inputActions.Spider.Interact.performed += Interact_performed;
+        if (inputActions.Spider.enabled) {
+            inputActions.Spider.SwitchToHuman.performed += SwitchToHuman_performed;
+            inputActions.Spider.Interact.performed += Interact_performed;
+        }
     }
 
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {

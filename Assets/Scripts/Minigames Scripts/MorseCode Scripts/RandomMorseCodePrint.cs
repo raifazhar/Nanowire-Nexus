@@ -12,19 +12,22 @@ public class RandomMorseCodePrint : MonoBehaviour{
 
     [SerializeField] private MorsecodeAlphabetScriptableObject morsecodeScriptableObject;
 
-    [SerializeField] private InputField inputField;
-
     private string RandomWord;
 
     private string RandomWordCode;
 
+    [SerializeField] TMP_InputField inputField;
+
+    char RandomCharacter;
     private void Start() {
         //this is just for testing. Event will be added for it to do random
         for (int i = 0; i < 5; i++) {
             int RandWordIndex = UnityEngine.Random.Range(1,26);
 
-            RandomWord += 'A' + RandWordIndex - 1;
+            RandomCharacter = (char)('A' + RandWordIndex - 1);
 
+            RandomWord += RandomCharacter;
+            
             RandomWordCode += morsecodeScriptableObject.AlphabetCodes[RandWordIndex-1];
             RandomWordCode += "\n";
         }
@@ -35,12 +38,16 @@ public class RandomMorseCodePrint : MonoBehaviour{
     }
 
     private void InputManager_OnSubmit(object sender, EventArgs e) {
-        if (CheckCorrectWord()) {
-            Debug.Log();
+
+        if (CheckInputString()) {
+            Debug.Log("Correct");
+        }
+        else {
+            Debug.Log("Incorrect");
         }
     }
 
-    bool CheckCorrectWord() {
-        return RandomWord == inputField.text;
+    bool CheckInputString() {
+        return inputField.text == RandomWord || inputField.text == RandomWord.ToLower();
     }
 }
