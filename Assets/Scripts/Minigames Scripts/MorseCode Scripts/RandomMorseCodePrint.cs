@@ -35,6 +35,12 @@ public class RandomMorseCodePrint : MonoBehaviour{
     }
 
     private void InputManager_OnSubmit(object sender, EventArgs e) {
-        
+        if (CheckCorrectWord()) {
+            Debug.Log();
+        }
+    }
+
+    bool CheckCorrectWord() {
+        return RandomWord == inputField.text;
     }
 }
