@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class MorsecodeHelpPNG : MonoBehaviour{
 
+    [SerializeField] MorsecodeGameContainer morseCodeGameContainer;
+
     private void Start() {
         gameObject.SetActive(false);
 
-        InputManager.Instance.OnHelpStarted += inputManager_OnHelpStarted;
         InputManager.Instance.OnHelpFinished += InputManager_OnHelpFinished;
+        InputManager.Instance.OnHelpStarted += inputManager_OnHelpStarted;
     }
 
     private void InputManager_OnHelpFinished(object sender, System.EventArgs e) {

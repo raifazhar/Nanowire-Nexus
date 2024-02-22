@@ -176,6 +176,7 @@ MonoBehaviour:
   MorseCodeReference: {fileID: 1762620379}
   morsecodeScriptableObject: {fileID: 11400000, guid: 7d83f3137d2a6b84ba591d8af5c23862, type: 2}
   inputField: {fileID: 1736643816}
+  morseCodeGameContainer: {fileID: 470317248}
 --- !u!1 &470317246
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 470317247}
+  - component: {fileID: 470317248}
   m_Layer: 5
   m_Name: MorseCode Minigame
   m_TagString: Untagged
@@ -213,6 +215,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &470317248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 470317246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea38e36540279a8459b10b476fb81856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  morseCodeGame: {fileID: 370690851}
 --- !u!1 &483409999
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +308,7 @@ GameObject:
   - component: {fileID: 515186493}
   - component: {fileID: 515186492}
   - component: {fileID: 515186491}
+  - component: {fileID: 515186495}
   m_Layer: 5
   m_Name: Minigames Canvas
   m_TagString: Untagged
@@ -384,6 +400,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &515186495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515186490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46436a3fcb589c145bb420ac1410a137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,7 +1109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 18, y: 0.000015258789}
+  m_AnchoredPosition: {x: 18, y: 0}
   m_SizeDelta: {x: -246.6342, y: 172.5967}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1748857928
@@ -1134,6 +1162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d59018fa8e9f1e4d80c4aa6dd778f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  morseCodeGameContainer: {fileID: 470317248}
 --- !u!1 &1762620378
 GameObject:
   m_ObjectHideFlags: 0

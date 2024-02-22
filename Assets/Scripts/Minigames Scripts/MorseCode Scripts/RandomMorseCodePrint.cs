@@ -8,43 +8,69 @@ using UnityEngine.UI;
 public class RandomMorseCodePrint : MonoBehaviour{
 
 
+    public event EventHandler OnCorrectMorseCodeSubmit;
+
     [SerializeField] private TextMeshProUGUI MorseCodeReference;
-
     [SerializeField] private MorsecodeAlphabetScriptableObject morsecodeScriptableObject;
-
-    private string RandomWord;
-
-    private string RandomWordCode;
-
     [SerializeField] TMP_InputField inputField;
 
+    [SerializeField] MorsecodeGameContainer morseCodeGameContainer;
+
+
+    private string RandomWord;
+    private string RandomWordCode;
     char RandomCharacter;
+
     private void Start() {
 
-            //this is just for testing. Event will be added for it to do random
-            for (int i = 0; i < 5; i++) {
-                int RandWordIndex = UnityEngine.Random.Range(0, 26);
+        inputField.text = "";
+        RandomWord = "";
+        RandomWordCode = "";
+        for (int i = 0; i < 5; i++) {
+            int RandWordIndex = UnityEngine.Random.Range(0, 25);
 
-                RandomCharacter = (char)('A' + RandWordIndex);
+            RandomCharacter = (char)('A' + RandWordIndex);
 
-                RandomWord += RandomCharacter;
+            RandomWord += RandomCharacter;
 
-                RandomWordCode += morsecodeScriptableObject.AlphabetCodes[RandWordIndex];
-                RandomWordCode += "\n";
-            }
-            MorseCodeReference.text = RandomWordCode;
+            RandomWordCode += morsecodeScriptableObject.AlphabetCodes[RandWordIndex];
+            RandomWordCode += "\n";
+        }
+        MorseCodeReference.text = RandomWordCode;
 
-            InputManager.Instance.OnSubmit += InputManager_OnSubmit;
+
+        MinigameSelect.Instance.OnMorseCodeSelect += MinigameSelect_OnMorseCodeSelect;
+
+        InputManager.Instance.OnSubmit += InputManager_OnSubmit;
+
+    }
+
+    private void MinigameSelect_OnMorseCodeSelect(object sender, EventArgs e) {
+        RandomWord = "";
+        RandomWordCode = "";
+        for (int i = 0; i < 5; i++) {
+            int RandWordIndex = UnityEngine.Random.Range(0, 25);
+
+            RandomCharacter = (char)('A' + RandWordIndex);
+
+            RandomWord += RandomCharacter;
+
+            RandomWordCode += morsecodeScriptableObject.AlphabetCodes[RandWordIndex];
+            RandomWordCode += "\n";
+        }
+        MorseCodeReference.text = RandomWordCode;
     }
 
     private void InputManager_OnSubmit(object sender, EventArgs e) {
 
         if (CheckInputString()) {
             Debug.Log("Correct");
+            OnCorrectMorseCodeSubmit?.Invoke(this, EventArgs.Empty);
         }
         else {
             Debug.Log("Incorrect");
         }
+
     }
 
     bool CheckInputString() {
