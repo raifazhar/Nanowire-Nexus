@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 370690850}
+  - component: {fileID: 370690851}
   m_Layer: 5
   m_Name: MorseCode game
   m_TagString: Untagged
@@ -160,6 +161,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &370690851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370690849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7a71f63e4f9d641bed58527d849067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MorseCodeReference: {fileID: 1762620379}
+  morsecodeScriptableObject: {fileID: 11400000, guid: 7d83f3137d2a6b84ba591d8af5c23862, type: 2}
+  inputField: {fileID: 1736643816}
 --- !u!1 &470317246
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,9 +204,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1748857927}
   - {fileID: 370690850}
-  - {fileID: 1138780466}
+  - {fileID: 1748857927}
   m_Father: {fileID: 515186494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -844,57 +859,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126586782}
   m_CullTransparentMesh: 1
---- !u!1 &1138780465
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1138780466}
-  - component: {fileID: 1138780467}
-  m_Layer: 5
-  m_Name: Morse Code Script Attaached
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1138780466
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1138780465}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 470317247}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1138780467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1138780465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc7a71f63e4f9d641bed58527d849067, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MorseCodeReference: {fileID: 1762620379}
-  morsecodeScriptableObject: {fileID: 11400000, guid: 7d83f3137d2a6b84ba591d8af5c23862, type: 2}
-  inputField: {fileID: 1736643816}
 --- !u!1 &1736643814
 GameObject:
   m_ObjectHideFlags: 0
@@ -931,7 +895,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 130, y: 78}
+  m_AnchoredPosition: {x: 400, y: 89}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1736643816
@@ -1014,7 +978,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1138780467}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RandomMorseCodePrint, Assembly-CSharp
         m_MethodName: ReadMessage
         m_Mode: 5
@@ -1093,6 +1057,7 @@ GameObject:
   - component: {fileID: 1748857927}
   - component: {fileID: 1748857929}
   - component: {fileID: 1748857928}
+  - component: {fileID: 1748857930}
   m_Layer: 5
   m_Name: MorseCode Alphabetics Codes PNG
   m_TagString: Untagged
@@ -1116,8 +1081,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 207, y: -117}
-  m_SizeDelta: {x: -400, y: 0}
+  m_AnchoredPosition: {x: 18, y: 0.000015258789}
+  m_SizeDelta: {x: -246.6342, y: 172.5967}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1748857928
 MonoBehaviour:
@@ -1157,6 +1122,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748857926}
   m_CullTransparentMesh: 1
+--- !u!114 &1748857930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748857926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d59018fa8e9f1e4d80c4aa6dd778f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1762620378
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,7 +1235,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 58.570423, w: 0}
+  m_margin: {x: 0, y: 0, z: -1.9099042, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1288,8 +1265,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -244, y: 157}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -0.0000066757, y: 168}
+  m_SizeDelta: {x: 138.113, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1856208477
 GameObject:
