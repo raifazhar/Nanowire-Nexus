@@ -1,8 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class SpiderProceduralAnimation : MonoBehaviour
+public class ProceduralAnimation2 : MonoBehaviour
 {
     public Transform[] legTargets;
     public float stepSize = 0.15f;
@@ -17,20 +18,23 @@ public class SpiderProceduralAnimation : MonoBehaviour
     private Vector3 lastBodyUp;
     private bool[] legMoving;
     private int nbLegs;
-    
+
     private Vector3 velocity;
     private Vector3 lastVelocity;
     private Vector3 lastBodyPos;
 
     private float velocityMultiplier = 15f;
 
+    Quaternion rotation = Quaternion.Euler(-90, 0, 0);
+
     Vector3[] MatchToSurfaceFromAbove(Vector3 point, float halfRange, Vector3 up)
     {
         Vector3[] res = new Vector3[2];
         res[1] = Vector3.zero;
         RaycastHit hit;
-        Ray ray = new Ray(point + halfRange * up / 2f, - up);
+        Ray ray = new Ray(point + halfRange * up / 2f, -up);
         Debug.DrawRay(point, -up, UnityEngine.Color.white);
+       
         if (Physics.SphereCast(ray, sphereCastRadius, out hit, 2f * halfRange))
         {
             res[0] = hit.point;
@@ -42,7 +46,7 @@ public class SpiderProceduralAnimation : MonoBehaviour
         }
         return res;
     }
-    
+
     void Start()
     {
         lastBodyUp = transform.up;
@@ -54,7 +58,9 @@ public class SpiderProceduralAnimation : MonoBehaviour
         for (int i = 0; i < nbLegs; ++i)
         {
             defaultLegPositions[i] = legTargets[i].localPosition;
+            //Debug.Log("Default position "+ i + " "+ defaultLegPositions[i]);
             lastLegPositions[i] = legTargets[i].position;
+            //Debug.Log("LastLeg position " + i + " " + lastLegPositions[i]);
             legMoving[i] = false;
         }
         lastBodyPos = transform.position;
@@ -63,7 +69,7 @@ public class SpiderProceduralAnimation : MonoBehaviour
     IEnumerator PerformStep(int index, Vector3 targetPoint)
     {
         Vector3 startPos = lastLegPositions[index];
-        for(int i = 1; i <= smoothness; ++i)
+        for (int i = 1; i <= smoothness; ++i)
         {
             legTargets[index].position = Vector3.Lerp(startPos, targetPoint, i / (float)(smoothness + 1f));
             legTargets[index].position += transform.up * Mathf.Sin(i / (float)(smoothness + 1f) * Mathf.PI) * stepHeight;
@@ -84,14 +90,20 @@ public class SpiderProceduralAnimation : MonoBehaviour
             velocity = lastVelocity;
         else
             lastVelocity = velocity;
-        
-        
+
+
         Vector3[] desiredPositions = new Vector3[nbLegs];
         int indexToMove = -1;
         float maxDistance = stepSize;
         for (int i = 0; i < nbLegs; ++i)
         {
-            desiredPositions[i] = transform.TransformPoint(defaultLegPositions[i]);
+            Vector3 localPosition = transform.TransformPoint(defaultLegPositions[i]); // Transform local position to world space
+            Vector3 rotatedPosition = rotation * localPosition; // Rotate the position using quaternion multiplication
+            desiredPositions[i] = rotatedPosition / 100f;
+
+            Debug.Log("Desired position transformPoint" + desiredPositions[i]);
+            Debug.Log("Defualt Position " + defaultLegPositions[i]);
+            //desiredPositions[i] = defaultLegPositions[i];
 
             float distance = Vector3.ProjectOnPlane(desiredPositions[i] + velocity * velocityMultiplier - lastLegPositions[i], transform.up).magnitude;
             if (distance > maxDistance)
@@ -106,16 +118,19 @@ public class SpiderProceduralAnimation : MonoBehaviour
 
         if (indexToMove != -1 && !legMoving[0])
         {
-            Vector3 targetPoint = desiredPositions[indexToMove] + Mathf.Clamp(velocity.magnitude * velocityMultiplier, 0.0f, 1.5f) * (desiredPositions[indexToMove] - legTargets[indexToMove].position) + velocity * velocityMultiplier;
+            //Debug.Log("Velocity is " + velocity);
+            //Debug.Log("Desired position " + desiredPositions[indexToMove]);
 
+            Vector3 targetPoint = desiredPositions[indexToMove] + Mathf.Clamp(velocity.magnitude * velocityMultiplier, 0.0f, 1.5f) * (desiredPositions[indexToMove] - legTargets[indexToMove].position) + velocity * velocityMultiplier;
+            Debug.Log(targetPoint);
             Vector3[] positionAndNormalFwd = MatchToSurfaceFromAbove(targetPoint + velocity * velocityMultiplier, raycastRange, (transform.parent.up - velocity * 100).normalized);
-            Vector3[] positionAndNormalBwd = MatchToSurfaceFromAbove(targetPoint + velocity * velocityMultiplier, raycastRange*(1f + velocity.magnitude), (transform.parent.up + velocity * 75).normalized);
-            
+            Vector3[] positionAndNormalBwd = MatchToSurfaceFromAbove(targetPoint + velocity * velocityMultiplier, raycastRange * (1f + velocity.magnitude), (transform.parent.up + velocity * 75).normalized);
+
             legMoving[0] = true;
-            
+
             if (positionAndNormalFwd[1] == Vector3.zero)
             {
-                StartCoroutine(PerformStep(indexToMove, positionAndNormalBwd[0]));
+               StartCoroutine(PerformStep(indexToMove, positionAndNormalBwd[0]));
             }
             else
             {
@@ -128,10 +143,7 @@ public class SpiderProceduralAnimation : MonoBehaviour
         {
             Vector3 v1 = legTargets[0].position - legTargets[1].position;
             Vector3 v2 = legTargets[2].position - legTargets[3].position;
-            Debug.DrawRay(legTargets[0].position,v1,Color.white);
-            Debug.DrawRay(legTargets[2].position,v2,Color.white);
             Vector3 normal = Vector3.Cross(v1, v2).normalized;
-            Debug.DrawRay(legTargets[0].position,normal,Color.white);
             Vector3 up = Vector3.Lerp(lastBodyUp, normal, 1f / (float)(smoothness + 1));
             transform.up = up;
             transform.rotation = Quaternion.LookRotation(transform.parent.forward, up);
