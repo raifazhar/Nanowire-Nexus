@@ -128,7 +128,10 @@ public class SpiderProceduralAnimation : MonoBehaviour
         {
             Vector3 v1 = legTargets[0].position - legTargets[1].position;
             Vector3 v2 = legTargets[2].position - legTargets[3].position;
+            Debug.DrawRay(legTargets[0].position,v1,Color.white);
+            Debug.DrawRay(legTargets[2].position,v2,Color.white);
             Vector3 normal = Vector3.Cross(v1, v2).normalized;
+            Debug.DrawRay(legTargets[0].position,normal,Color.white);
             Vector3 up = Vector3.Lerp(lastBodyUp, normal, 1f / (float)(smoothness + 1));
             transform.up = up;
             transform.rotation = Quaternion.LookRotation(transform.parent.forward, up);
