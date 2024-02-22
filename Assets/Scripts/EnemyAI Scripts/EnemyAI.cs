@@ -9,6 +9,9 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
 
+    public Transform[] wayPoints;
+    public int wayPointIndex = 0;
+
     //Patroling
     public Vector3 walkPoint;
     bool walkPointSet;
@@ -41,7 +44,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Patroling()
     {
-        if (!walkPointSet) SearchWalkPoint();
+        //if (!walkPointSet) SearchWalkPoint();
+        if (!walkPointSet) GetWalkPoint();
 
         if (walkPointSet)
             agent.SetDestination(walkPoint);
@@ -63,6 +67,19 @@ public class EnemyAI : MonoBehaviour
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
+    }
+
+    private void GetWalkPoint()
+    {
+        if (transform.position != wayPoints[wayPointIndex].position)
+        {
+            walkPoint = wayPoints[wayPointIndex].position;
+
+            wayPointIndex = (wayPointIndex + 1) % wayPoints.Length;
+
+            if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+                walkPointSet = true;
+        }
     }
 
     private void ChasePlayer()
