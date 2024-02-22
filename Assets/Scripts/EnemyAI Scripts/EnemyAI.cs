@@ -71,18 +71,19 @@ public class EnemyAI : MonoBehaviour
 
     private void GetWalkPoint()
     {
-        if (transform.position != wayPoints[wayPointIndex].position)
-        {
-            walkPoint = wayPoints[wayPointIndex].position;
+        if (wayPoints.Length != 0) {
+            if (transform.position != wayPoints[wayPointIndex].position) {
+                walkPoint = wayPoints[wayPointIndex].position;
 
-            wayPointIndex = (wayPointIndex + 1) % wayPoints.Length;
+                wayPointIndex = (wayPointIndex + 1) % wayPoints.Length;
 
-            if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-                walkPointSet = true;
+                if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+                    walkPointSet = true;
+            }
         }
     }
 
-    private void ChasePlayer()
+        private void ChasePlayer()
     {
         agent.SetDestination(player.position);
     }
