@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MorsecodeHelpPNG : MonoBehaviour{
+
     private void Start() {
         gameObject.SetActive(false);
 

@@ -20,21 +20,21 @@ public class RandomMorseCodePrint : MonoBehaviour{
 
     char RandomCharacter;
     private void Start() {
-        //this is just for testing. Event will be added for it to do random
-        for (int i = 0; i < 5; i++) {
-            int RandWordIndex = UnityEngine.Random.Range(1,26);
 
-            RandomCharacter = (char)('A' + RandWordIndex - 1);
+            //this is just for testing. Event will be added for it to do random
+            for (int i = 0; i < 5; i++) {
+                int RandWordIndex = UnityEngine.Random.Range(0, 26);
 
-            RandomWord += RandomCharacter;
-            
-            RandomWordCode += morsecodeScriptableObject.AlphabetCodes[RandWordIndex-1];
-            RandomWordCode += "\n";
-        }
-        MorseCodeReference.text = RandomWordCode;
+                RandomCharacter = (char)('A' + RandWordIndex);
 
+                RandomWord += RandomCharacter;
 
-        InputManager.Instance.OnSubmit += InputManager_OnSubmit;
+                RandomWordCode += morsecodeScriptableObject.AlphabetCodes[RandWordIndex];
+                RandomWordCode += "\n";
+            }
+            MorseCodeReference.text = RandomWordCode;
+
+            InputManager.Instance.OnSubmit += InputManager_OnSubmit;
     }
 
     private void InputManager_OnSubmit(object sender, EventArgs e) {
