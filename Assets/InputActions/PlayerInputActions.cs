@@ -156,7 +156,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Player"",
+            ""name"": ""PlayerMinigames"",
             ""id"": ""3d741d03-e982-4110-9da1-b5068f9b495f"",
             ""actions"": [
                 {
@@ -178,36 +178,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Up"",
+                    ""name"": ""Help"",
                     ""type"": ""Button"",
-                    ""id"": ""85e85e7f-946a-4bd7-9bbf-8f022952ea95"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Down"",
-                    ""type"": ""Button"",
-                    ""id"": ""5b651ff8-81ce-44bd-8735-26221d927cd6"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Left"",
-                    ""type"": ""Button"",
-                    ""id"": ""754fcb99-b179-4daa-b157-58012b5b86fb"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Right"",
-                    ""type"": ""Button"",
-                    ""id"": ""3f31bef6-b422-4392-9e77-dace497c85a3"",
+                    ""id"": ""46d53640-db70-46db-bbd7-b86eb3ab56ad"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -239,89 +212,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""29bc3e5a-6fe3-4ac2-8fe5-22e24c1f6d8d"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""id"": ""e9b814c9-47db-4308-ace9-7255f03f81d8"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Up"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""563cd071-e06c-4c14-9273-5bd40c7581da"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Up"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b207e573-86ac-4695-81a7-7f7f9a2c5c7b"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Down"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ee7a2677-52cc-4ae7-b768-8313fd81eb38"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Down"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4ffa9db9-10b2-4d53-8a80-62ea0bc3ee74"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b8abae1b-aa76-4f33-b5d4-ea165d1084d5"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""75255bb3-6821-49c8-bf13-25a010fc2667"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Right"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ce2523ee-821f-40bc-b9b6-0ae32f088879"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Right"",
+                    ""action"": ""Help"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -336,14 +232,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Spider_SwitchToHuman = m_Spider.FindAction("SwitchToHuman", throwIfNotFound: true);
         m_Spider_MouseLook = m_Spider.FindAction("MouseLook", throwIfNotFound: true);
         m_Spider_Interact = m_Spider.FindAction("Interact", throwIfNotFound: true);
-        // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Submit = m_Player.FindAction("Submit", throwIfNotFound: true);
-        m_Player_SwitchToSpider = m_Player.FindAction("SwitchToSpider", throwIfNotFound: true);
-        m_Player_Up = m_Player.FindAction("Up", throwIfNotFound: true);
-        m_Player_Down = m_Player.FindAction("Down", throwIfNotFound: true);
-        m_Player_Left = m_Player.FindAction("Left", throwIfNotFound: true);
-        m_Player_Right = m_Player.FindAction("Right", throwIfNotFound: true);
+        // PlayerMinigames
+        m_PlayerMinigames = asset.FindActionMap("PlayerMinigames", throwIfNotFound: true);
+        m_PlayerMinigames_Submit = m_PlayerMinigames.FindAction("Submit", throwIfNotFound: true);
+        m_PlayerMinigames_SwitchToSpider = m_PlayerMinigames.FindAction("SwitchToSpider", throwIfNotFound: true);
+        m_PlayerMinigames_Help = m_PlayerMinigames.FindAction("Help", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -472,55 +365,40 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     }
     public SpiderActions @Spider => new SpiderActions(this);
 
-    // Player
-    private readonly InputActionMap m_Player;
-    private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-    private readonly InputAction m_Player_Submit;
-    private readonly InputAction m_Player_SwitchToSpider;
-    private readonly InputAction m_Player_Up;
-    private readonly InputAction m_Player_Down;
-    private readonly InputAction m_Player_Left;
-    private readonly InputAction m_Player_Right;
-    public struct PlayerActions
+    // PlayerMinigames
+    private readonly InputActionMap m_PlayerMinigames;
+    private List<IPlayerMinigamesActions> m_PlayerMinigamesActionsCallbackInterfaces = new List<IPlayerMinigamesActions>();
+    private readonly InputAction m_PlayerMinigames_Submit;
+    private readonly InputAction m_PlayerMinigames_SwitchToSpider;
+    private readonly InputAction m_PlayerMinigames_Help;
+    public struct PlayerMinigamesActions
     {
         private @PlayerInputActions m_Wrapper;
-        public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Submit => m_Wrapper.m_Player_Submit;
-        public InputAction @SwitchToSpider => m_Wrapper.m_Player_SwitchToSpider;
-        public InputAction @Up => m_Wrapper.m_Player_Up;
-        public InputAction @Down => m_Wrapper.m_Player_Down;
-        public InputAction @Left => m_Wrapper.m_Player_Left;
-        public InputAction @Right => m_Wrapper.m_Player_Right;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public PlayerMinigamesActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Submit => m_Wrapper.m_PlayerMinigames_Submit;
+        public InputAction @SwitchToSpider => m_Wrapper.m_PlayerMinigames_SwitchToSpider;
+        public InputAction @Help => m_Wrapper.m_PlayerMinigames_Help;
+        public InputActionMap Get() { return m_Wrapper.m_PlayerMinigames; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void AddCallbacks(IPlayerActions instance)
+        public static implicit operator InputActionMap(PlayerMinigamesActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerMinigamesActions instance)
         {
-            if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_PlayerMinigamesActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerMinigamesActionsCallbackInterfaces.Add(instance);
             @Submit.started += instance.OnSubmit;
             @Submit.performed += instance.OnSubmit;
             @Submit.canceled += instance.OnSubmit;
             @SwitchToSpider.started += instance.OnSwitchToSpider;
             @SwitchToSpider.performed += instance.OnSwitchToSpider;
             @SwitchToSpider.canceled += instance.OnSwitchToSpider;
-            @Up.started += instance.OnUp;
-            @Up.performed += instance.OnUp;
-            @Up.canceled += instance.OnUp;
-            @Down.started += instance.OnDown;
-            @Down.performed += instance.OnDown;
-            @Down.canceled += instance.OnDown;
-            @Left.started += instance.OnLeft;
-            @Left.performed += instance.OnLeft;
-            @Left.canceled += instance.OnLeft;
-            @Right.started += instance.OnRight;
-            @Right.performed += instance.OnRight;
-            @Right.canceled += instance.OnRight;
+            @Help.started += instance.OnHelp;
+            @Help.performed += instance.OnHelp;
+            @Help.canceled += instance.OnHelp;
         }
 
-        private void UnregisterCallbacks(IPlayerActions instance)
+        private void UnregisterCallbacks(IPlayerMinigamesActions instance)
         {
             @Submit.started -= instance.OnSubmit;
             @Submit.performed -= instance.OnSubmit;
@@ -528,35 +406,26 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SwitchToSpider.started -= instance.OnSwitchToSpider;
             @SwitchToSpider.performed -= instance.OnSwitchToSpider;
             @SwitchToSpider.canceled -= instance.OnSwitchToSpider;
-            @Up.started -= instance.OnUp;
-            @Up.performed -= instance.OnUp;
-            @Up.canceled -= instance.OnUp;
-            @Down.started -= instance.OnDown;
-            @Down.performed -= instance.OnDown;
-            @Down.canceled -= instance.OnDown;
-            @Left.started -= instance.OnLeft;
-            @Left.performed -= instance.OnLeft;
-            @Left.canceled -= instance.OnLeft;
-            @Right.started -= instance.OnRight;
-            @Right.performed -= instance.OnRight;
-            @Right.canceled -= instance.OnRight;
+            @Help.started -= instance.OnHelp;
+            @Help.performed -= instance.OnHelp;
+            @Help.canceled -= instance.OnHelp;
         }
 
-        public void RemoveCallbacks(IPlayerActions instance)
+        public void RemoveCallbacks(IPlayerMinigamesActions instance)
         {
-            if (m_Wrapper.m_PlayerActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerMinigamesActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IPlayerActions instance)
+        public void SetCallbacks(IPlayerMinigamesActions instance)
         {
-            foreach (var item in m_Wrapper.m_PlayerActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerMinigamesActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_PlayerActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerMinigamesActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public PlayerActions @Player => new PlayerActions(this);
+    public PlayerMinigamesActions @PlayerMinigames => new PlayerMinigamesActions(this);
     public interface ISpiderActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -564,13 +433,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnMouseLook(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
     }
-    public interface IPlayerActions
+    public interface IPlayerMinigamesActions
     {
         void OnSubmit(InputAction.CallbackContext context);
         void OnSwitchToSpider(InputAction.CallbackContext context);
-        void OnUp(InputAction.CallbackContext context);
-        void OnDown(InputAction.CallbackContext context);
-        void OnLeft(InputAction.CallbackContext context);
-        void OnRight(InputAction.CallbackContext context);
+        void OnHelp(InputAction.CallbackContext context);
     }
 }

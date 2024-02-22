@@ -8,13 +8,10 @@ public class InputManager : MonoBehaviour{
 
     //Events for Player UI Minigames
 
-    public event EventHandler OnUpKeyPress;
-    public event EventHandler OnDownKeyPress;
-    public event EventHandler OnLeftKeyPress;
-    public event EventHandler OnRightKeyPress;
     public event EventHandler OnSubmit;
     public event EventHandler OnChangeToSpider;
-
+    public event EventHandler OnHelpStarted;
+    public event EventHandler OnHelpFinished;
 
     //Events for Spider
     public event EventHandler OnInteract;
@@ -33,19 +30,27 @@ public class InputManager : MonoBehaviour{
     private void Start() {
         
         inputActions.Spider.Disable();
-        inputActions.Player.Enable();
+        inputActions.PlayerMinigames.Enable();
 
-        inputActions.Player.Up.performed += Up_performed;
-        inputActions.Player.Down.performed += Down_performed;
-        inputActions.Player.Left.performed += Left_performed;
-        inputActions.Player.Right.performed += Right_performed;
-        inputActions.Player.Submit.performed += Submit_performed;
-        inputActions.Player.SwitchToSpider.performed += SwitchToSpider_performed;
-
+        if (inputActions.PlayerMinigames.enabled) {
+            inputActions.PlayerMinigames.Submit.performed += Submit_performed;
+            inputActions.PlayerMinigames.SwitchToSpider.performed += SwitchToSpider_performed;
+            inputActions.PlayerMinigames.Help.started += Help_Started;
+            inputActions.PlayerMinigames.Help.canceled += Help_canceled;
+        }
+        
         if (inputActions.Spider.enabled) {
             inputActions.Spider.SwitchToHuman.performed += SwitchToHuman_performed;
             inputActions.Spider.Interact.performed += Interact_performed;
         }
+    }
+
+    private void Help_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        OnHelpFinished?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void Help_Started(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
+        OnHelpStarted.Invoke(this, EventArgs.Empty);
     }
 
     private void Interact_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
@@ -64,24 +69,10 @@ public class InputManager : MonoBehaviour{
         OnSubmit?.Invoke(this, EventArgs.Empty);
     }
 
-    private void Right_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
-        OnRightKeyPress?.Invoke(this, EventArgs.Empty);
-    }
-
-    private void Left_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
-        OnLeftKeyPress?.Invoke(this, EventArgs.Empty);
-    }
-
-    private void Down_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
-        OnDownKeyPress?.Invoke(this, EventArgs.Empty);
-    }
-
-    private void Up_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
-        OnUpKeyPress?.Invoke(this, EventArgs.Empty);
-    }
-
     // function for spider to get movement
     Vector2 GetSpiderMovement() {
-        return inputActions.Spider.Movement.ReadValue<Vector2>();
+        if(inputActions.Spider.enabled)
+            return inputActions.Spider.Movement.ReadValue<Vector2>();
+        return Vector2.zero;
     }
 }
