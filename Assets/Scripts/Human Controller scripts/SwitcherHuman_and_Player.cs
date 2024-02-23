@@ -7,11 +7,11 @@ using UnityEngine.Animations;
 
 public class SwitcherHuman_and_Player : MonoBehaviour{
 
-    [SerializeField] private new GameObject gameObject;
-    [SerializeField] private new CinemachineVirtualCamera camera;
+    [SerializeField] private  GameObject HumanGameObject;
+    [SerializeField] private CinemachineVirtualCamera FPScamera;
+    [SerializeField] private Transform CameraTarget;
 
-    private const string HumanController = "HumanControler";
-    private const string EnemyAI = "EnemyAI";
+    private HumanController human;
 
     private void Start() {
         InputManager.Instance.OnHumanInteract += InputManager_OnHumanInteract;
@@ -19,12 +19,32 @@ public class SwitcherHuman_and_Player : MonoBehaviour{
     }
 
     private void InputManager_OnSpiderInteract(object sender, EventArgs e) {
-        Debug.Log("SpiderInteract");
-        camera.Priority = 20;
+        FPScamera.Priority = 20;
+
+        // Disable EnemyAI script 
+        if (HumanGameObject.TryGetComponent(out EnemyAI EnemyComponent)) {
+            Destroy(EnemyComponent);
+        }
+        else {
+            Debug.LogError("No EnemyAI on this object!");
+        }
+
+        //Add the chracter controler scripts
+        if(HumanGameObject.TryGetComponent(out HumanController HumanComponent)) {
+            Debug.LogError("Already Exists");
+        }
+        else {
+            human = HumanGameObject.AddComponent<HumanController>();
+        }
+        if (HumanGameObject.TryGetComponent(out CharacterController characterController)) {
+            Debug.LogError("Character Controller already exists");
+        }
+        else {
+            HumanGameObject.AddComponent<CharacterController>();
+        }
     }
 
     private void InputManager_OnHumanInteract(object sender, EventArgs e) {
-        Debug.Log("HumanInteract");
-        camera.Priority = 5;
+        FPScamera.Priority = 5;
     }
 }

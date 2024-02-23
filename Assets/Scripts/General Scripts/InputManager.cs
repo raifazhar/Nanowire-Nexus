@@ -27,6 +27,8 @@ public class InputManager : MonoBehaviour{
     private void Awake() {
         Instance = this;
         inputActions = new PlayerInputActions();
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Start() {
@@ -47,20 +49,11 @@ public class InputManager : MonoBehaviour{
     }
 
     private void HumanInteract_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
-        Debug.Log("HumanInteract Fire");
-
-        inputActions.Spider.Enable();
         
-        if (inputActions.Spider.enabled) {
-            Debug.Log("Spider Enabled");
-        }
+        inputActions.Spider.Enable();
         
         inputActions.Human.Disable();
         
-        if (!inputActions.Human.enabled) {
-            Debug.Log("Human Disabled");
-        }
-
         OnHumanInteract?.Invoke(this, EventArgs.Empty);
     }
 
@@ -73,19 +66,10 @@ public class InputManager : MonoBehaviour{
     }
 
     private void SpiderInteract_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
-        Debug.Log("SpiderInteract Fire");
         inputActions.Spider.Disable();
         
-        if (!inputActions.Spider.enabled) {
-            Debug.Log("Spider Disable");
-        }
-
         inputActions.Human.Enable();
         
-        if (inputActions.Human.enabled) {
-            Debug.Log("Human Enabled");
-        }
-
         OnSpiderInteract?.Invoke(this, EventArgs.Empty);
         
     }
