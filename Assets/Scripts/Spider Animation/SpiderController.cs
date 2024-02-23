@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class SpiderController : MonoBehaviour
 {
+    
     public float _speed = 3f;
     public float smoothness = 5f;
     public int raysNb = 8;
@@ -83,6 +84,7 @@ public class SpiderController : MonoBehaviour
             dirs[i] = -up + (right * Mathf.Cos(currentAngle) + forward * Mathf.Sin(currentAngle)) * eccentricity;
             currentAngle += angularStep;
         }
+
 
         foreach (Vector3 dir in dirs)
         {
