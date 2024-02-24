@@ -4929,9 +4929,6 @@ MonoBehaviour:
   Alltriggers:
   - {fileID: 1725421021}
   - {fileID: 1355787470}
-  - {fileID: 94020375}
-  - {fileID: 917527797}
-  - {fileID: 51458201}
 --- !u!4 &1780315004
 Transform:
   m_ObjectHideFlags: 0
