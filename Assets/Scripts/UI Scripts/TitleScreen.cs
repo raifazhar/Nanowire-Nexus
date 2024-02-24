@@ -9,15 +9,17 @@ public class TitleScreen : MonoBehaviour
     [SerializeField] private Button PlayButton;
     [SerializeField] private Button QuitButton;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private void Awake() {
+        PlayButton.Select();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        QuitButton.onClick.AddListener(() => {
+            Application.Quit();
+        });
+
+        PlayButton.onClick.AddListener(() => {
+            Loader.Load(Loader.Scene.GameScene);
+        });
+
+
     }
 }
