@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class InteractCollider : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class InteractCollider : MonoBehaviour
     private void Update()
     {
         numFound = Physics.OverlapSphereNonAlloc(intereactBody.position, intereactradius, colliders, intereactMask);
+        Debug.Log(numFound);
         if(numFound> 0) 
         {
             var Intereactable=colliders[0].GetComponent<IIntereactable>();
@@ -25,7 +27,6 @@ public class InteractCollider : MonoBehaviour
             {
                 OnNearIntereactable?.Invoke();
                 Intereactable.interact(this);
-                
             }
            
         }
