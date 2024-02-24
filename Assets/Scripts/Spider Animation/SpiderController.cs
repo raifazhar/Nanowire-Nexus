@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 
 public class SpiderController : MonoBehaviour
@@ -16,15 +17,15 @@ public class SpiderController : MonoBehaviour
 
     private Vector3 velocity;
     private Vector3 lastVelocity;
-    private int numFound;
+   
     private Vector3 lastPosition;
     private Vector3 forward;
     private Vector3 upward;
     private Quaternion lastRot;
     private Vector3[] pn;
-    [SerializeField]private float intereactradius;
+    
     [SerializeField] private LayerMask notclimable;
-    private Collider[] colliders;
+
 
     Vector3[] GetIcoSphereCoords(int depth)
     {
@@ -136,20 +137,16 @@ public class SpiderController : MonoBehaviour
         lastPosition = transform.position;
         lastVelocity = velocity;
         
-        numFound = Physics.OverlapSphereNonAlloc(transform.position, intereactradius, colliders, notclimable);
-
-       
-
         float multiplier = 1f;
         RaycastHit hit;
-        bool hitnotcliamble = Physics.SphereCast(transform.position, 0.2f, transform.forward, out hit, 0.05f, notclimable);
+        bool hitnotcliamble = Physics.SphereCast(transform.position, 0.2f, transform.forward, out hit, 0.1f, notclimable);
         if (Input.GetKey(KeyCode.LeftShift))
             multiplier = 2f;
 
-        float valueY = Input.GetAxis("Vertical");
+        float valueY = InputManager.Instance.GetSpiderMovement().y;
         if (valueY != 0  && !hitnotcliamble)
             transform.position += transform.forward * valueY * _speed * multiplier * Time.fixedDeltaTime;
-        float valueX = Input.GetAxis("Horizontal");
+        float valueX = InputManager.Instance.GetSpiderMovement().x;
         if (valueX != 0)
             transform.position += Vector3.Cross(transform.up, transform.forward) * valueX * _speed * multiplier * Time.fixedDeltaTime;
 
