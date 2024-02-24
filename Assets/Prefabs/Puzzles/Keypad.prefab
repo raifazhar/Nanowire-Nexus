@@ -118,3 +118,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dfdf030985a0b340907c6055ec68b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzle: {fileID: 2028152292737104525}
+  Triggermanager: {fileID: 0}

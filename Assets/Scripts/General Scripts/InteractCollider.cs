@@ -27,7 +27,7 @@ public class InteractCollider : MonoBehaviour
             if (Intereactable!=null)
             {
                 OnNearIntereactable?.Invoke();
-                if (Input.GetKeyDown(KeyCode.E) && Foward.enabled)
+                if (Input.GetKeyDown(KeyCode.Tab))
                 Intereactable.interact(this);
             }
            

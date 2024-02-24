@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2927812666997621797}
   - component: {fileID: 8341879464144356466}
   - component: {fileID: 5622742424535036664}
-  - component: {fileID: 3543046163836863468}
+  - component: {fileID: 258548534034712187}
   m_Layer: 3
   m_Name: Circuit Box
   m_TagString: Untagged
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3543046163836863468
+--- !u!114 &258548534034712187
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,9 +115,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5572356354757810005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f3aa81d7983d8a44bbca52f4a1e2d7f, type: 3}
+  m_Script: {fileID: 11500000, guid: e34f7a3f4de68cc468f0574d8da22351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  completed: 0
   puzzle: {fileID: 5572356354757810005}
   Triggermanager: {fileID: 0}

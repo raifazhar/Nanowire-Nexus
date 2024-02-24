@@ -1,26 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public class IntereactMorse : MonoBehaviour, IIntereactable
+public class IntereactWiretask : MonoBehaviour,IIntereactable
 {
+
     [SerializeField] private GameObject puzzle;
     [SerializeField] private TriggerList Triggermanager;
     public bool interact(InteractCollider interactCollider)
     {
 
-        MinigameSelect.Instance.setinteract(1);
+        MinigameSelect.Instance.setinteract(2);
 
         return true;
     }
-    private void Start()
+    private void start()
     {
-        RandomMorseCodePrint.instance.OnCorrectMorseCodeSubmit += Instance_OnCorrectMorseCodeSubmit;
+        wireTask.instance.wiretaskcompleted += Instance_wiretaskcompleted;
     }
 
-    private void Instance_OnCorrectMorseCodeSubmit(object sender, EventArgs e)
+    private void Instance_wiretaskcompleted(object sender, EventArgs e)
     {
         Triggermanager.triggercall(puzzle);
     }
+
+  
 }

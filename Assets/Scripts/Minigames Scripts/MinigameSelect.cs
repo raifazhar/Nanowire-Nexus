@@ -26,14 +26,11 @@ public class MinigameSelect : MonoBehaviour{
         gameObject.SetActive(false);
     }
 
-    public void setinteract()
+    public void setinteract(int selected)
     {
         gameObject.SetActive(true);
 
-        int Minigame = UnityEngine.Random.Range(1, 2);
-
-        
-
+        int Minigame = selected;
         if (Minigame == 1)
         {
             OnMorseCodeSelect?.Invoke(this, EventArgs.Empty);
