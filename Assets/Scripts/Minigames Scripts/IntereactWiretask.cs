@@ -15,7 +15,7 @@ public class IntereactWiretask : MonoBehaviour,IIntereactable
 
         return true;
     }
-    private void start()
+    private void Start()
     {
         wireTask.instance.wiretaskcompleted += Instance_wiretaskcompleted;
     }

@@ -21,6 +21,11 @@ public class Wirecontroller : MonoBehaviour
     private void Instance_OnWiresSelect(object sender, System.EventArgs e)
     {
         gameObject.SetActive(true);
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(true);
+        }
+
         Cursor.lockState = CursorLockMode.Confined;
     }
 
