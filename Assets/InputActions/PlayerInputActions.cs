@@ -145,7 +145,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b91ebee8-5ecf-46d1-bc56-bc0e14f733b2"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -222,6 +222,118 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Human"",
+            ""id"": ""6b387c6f-2381-4bd2-874e-5f162594efd7"",
+            ""actions"": [
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""0c13c883-11eb-4ace-8092-d8a5f8b6f8ad"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""f194c92b-364b-4d58-9669-effd878e5270"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""HumanInteract"",
+                    ""type"": ""Button"",
+                    ""id"": ""6ee0d0df-c2c5-4f62-89bd-2a5e3604f4dc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""bd19825e-6ffe-4942-a3aa-08c69ff71bb8"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""4444f5bb-6133-4efa-92f2-0c90bf1f409e"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""c27106e9-7d44-4fb3-b15b-a734e9a0c5f5"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""a0d7f8d3-d606-4c53-93db-5200866c46f7"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""32d634ee-92d8-4d6f-9d7d-2ac1de52ebc8"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""784c4ed4-b482-4e3d-ae65-807573126b2e"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4d73bb11-b22f-45be-89d7-dd2a8f75657f"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HumanInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -237,6 +349,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_PlayerMinigames_Submit = m_PlayerMinigames.FindAction("Submit", throwIfNotFound: true);
         m_PlayerMinigames_SwitchToSpider = m_PlayerMinigames.FindAction("SwitchToSpider", throwIfNotFound: true);
         m_PlayerMinigames_Help = m_PlayerMinigames.FindAction("Help", throwIfNotFound: true);
+        // Human
+        m_Human = asset.FindActionMap("Human", throwIfNotFound: true);
+        m_Human_Movement = m_Human.FindAction("Movement", throwIfNotFound: true);
+        m_Human_Look = m_Human.FindAction("Look", throwIfNotFound: true);
+        m_Human_HumanInteract = m_Human.FindAction("HumanInteract", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -426,6 +543,68 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         }
     }
     public PlayerMinigamesActions @PlayerMinigames => new PlayerMinigamesActions(this);
+
+    // Human
+    private readonly InputActionMap m_Human;
+    private List<IHumanActions> m_HumanActionsCallbackInterfaces = new List<IHumanActions>();
+    private readonly InputAction m_Human_Movement;
+    private readonly InputAction m_Human_Look;
+    private readonly InputAction m_Human_HumanInteract;
+    public struct HumanActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public HumanActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Human_Movement;
+        public InputAction @Look => m_Wrapper.m_Human_Look;
+        public InputAction @HumanInteract => m_Wrapper.m_Human_HumanInteract;
+        public InputActionMap Get() { return m_Wrapper.m_Human; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(HumanActions set) { return set.Get(); }
+        public void AddCallbacks(IHumanActions instance)
+        {
+            if (instance == null || m_Wrapper.m_HumanActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_HumanActionsCallbackInterfaces.Add(instance);
+            @Movement.started += instance.OnMovement;
+            @Movement.performed += instance.OnMovement;
+            @Movement.canceled += instance.OnMovement;
+            @Look.started += instance.OnLook;
+            @Look.performed += instance.OnLook;
+            @Look.canceled += instance.OnLook;
+            @HumanInteract.started += instance.OnHumanInteract;
+            @HumanInteract.performed += instance.OnHumanInteract;
+            @HumanInteract.canceled += instance.OnHumanInteract;
+        }
+
+        private void UnregisterCallbacks(IHumanActions instance)
+        {
+            @Movement.started -= instance.OnMovement;
+            @Movement.performed -= instance.OnMovement;
+            @Movement.canceled -= instance.OnMovement;
+            @Look.started -= instance.OnLook;
+            @Look.performed -= instance.OnLook;
+            @Look.canceled -= instance.OnLook;
+            @HumanInteract.started -= instance.OnHumanInteract;
+            @HumanInteract.performed -= instance.OnHumanInteract;
+            @HumanInteract.canceled -= instance.OnHumanInteract;
+        }
+
+        public void RemoveCallbacks(IHumanActions instance)
+        {
+            if (m_Wrapper.m_HumanActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IHumanActions instance)
+        {
+            foreach (var item in m_Wrapper.m_HumanActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_HumanActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public HumanActions @Human => new HumanActions(this);
     public interface ISpiderActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -438,5 +617,11 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnSubmit(InputAction.CallbackContext context);
         void OnSwitchToSpider(InputAction.CallbackContext context);
         void OnHelp(InputAction.CallbackContext context);
+    }
+    public interface IHumanActions
+    {
+        void OnMovement(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
+        void OnHumanInteract(InputAction.CallbackContext context);
     }
 }
