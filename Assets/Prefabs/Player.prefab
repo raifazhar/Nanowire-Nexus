@@ -65,7 +65,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -320,6 +320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2887110523380859007}
+  - component: {fileID: 2065605089630565091}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -343,6 +344,24 @@ Transform:
   - {fileID: 5165578125284465114}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2065605089630565091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014604277103299290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66e97ec723382a42a326a01d2457a12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intereactBody: {fileID: 5165578125284465114}
+  intereactradius: 0.3
+  intereactMask:
+    serializedVersion: 2
+    m_Bits: 8
+  numFound: 0
 --- !u!1 &2045821423198814184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,6 +1074,9 @@ MonoBehaviour:
   raysEccentricity: 0.2
   outerRaysOffset: 2
   innerRaysOffset: 25
+  notclimable:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!4 &5622643534701633981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1018600849983610764, guid: e29c37089744f09449b986505c6486a9, type: 3}
