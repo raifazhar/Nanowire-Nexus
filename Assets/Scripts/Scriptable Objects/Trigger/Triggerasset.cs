@@ -27,7 +27,7 @@ public class Triggerasset:MonoBehaviour,IIntereactable
         }
         if (open == true)
         {
-            Debug.Log("Open the door");
+            gameObject.SetActive(false);
         }
         return true;
     }
