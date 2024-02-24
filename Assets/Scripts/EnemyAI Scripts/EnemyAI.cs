@@ -48,12 +48,12 @@ public class EnemyAI : MonoBehaviour
         if (playerInSightRange && !playerInAttackRange)
         {
             ChasePlayer();
-            animator.SetInteger("States", 1);
+            animator.SetInteger("States", 2);
         }
         if (playerInSightRange && playerInAttackRange)
         {
             AttackPlayer();
-            animator.SetInteger("States", 2);
+            animator.SetInteger("States", 3);
         }
     }
 
