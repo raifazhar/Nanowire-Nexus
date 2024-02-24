@@ -10,7 +10,7 @@ public class MinigameSelect : MonoBehaviour{
     public event EventHandler OnMorseCodeSelect;
     public event EventHandler OnWiresSelect;
 
-    private bool FirstTab = true;
+    
     public static MinigameSelect Instance { get; private set; }
     private void Awake() {
         Instance = this;
@@ -18,30 +18,29 @@ public class MinigameSelect : MonoBehaviour{
 
     private void Start() {
         gameObject.SetActive(false);
-        
-        InputManager.Instance.OnChangeToSpider += Inputanager_OnChangeToSpider;
+        RandomMorseCodePrint.instance.OnCorrectMorseCodeSubmit += Instance_OnCorrectMorseCodeSubmit; ;
     }
 
-    private void Inputanager_OnChangeToSpider(object sender, EventArgs e) {
-        if (!FirstTab) {
-            FirstTab = true;
-            gameObject.SetActive(false);
+    private void Instance_OnCorrectMorseCodeSubmit(object sender, EventArgs e)
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void setinteract()
+    {
+        gameObject.SetActive(true);
+
+        int Minigame = UnityEngine.Random.Range(1, 2);
+
+        
+
+        if (Minigame == 1)
+        {
+            OnMorseCodeSelect?.Invoke(this, EventArgs.Empty);
         }
-        else {
-            FirstTab = false;
-            
-            gameObject.SetActive(true);
-
-            int Minigame = UnityEngine.Random.Range(1, 2);
-
-            Minigame = 2;
-
-            if (Minigame == 1) {
-                OnMorseCodeSelect?.Invoke(this, EventArgs.Empty);
-            }
-            else if (Minigame == 2) {
-                OnWiresSelect?.Invoke(this, EventArgs.Empty);
-            }
+        else if (Minigame == 2)
+        {
+            OnWiresSelect?.Invoke(this, EventArgs.Empty);
         }
     }
 }

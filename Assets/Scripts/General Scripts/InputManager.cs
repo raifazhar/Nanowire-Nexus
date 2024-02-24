@@ -46,6 +46,23 @@ public class InputManager : MonoBehaviour{
         inputActions.Spider.Interact.performed += SpiderInteract_performed;
 
         inputActions.Human.HumanInteract.performed += HumanInteract_performed;
+
+        MinigameSelect.Instance.OnMorseCodeSelect += Instance_OnMorseCodeSelect;
+        RandomMorseCodePrint.instance.OnCorrectMorseCodeSubmit += Instance_OnCorrectMorseCodeSubmit;
+    }
+
+    private void Instance_OnCorrectMorseCodeSubmit(object sender, EventArgs e)
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        inputActions.Spider.Enable();
+        inputActions.PlayerMinigames.Disable();
+    }
+
+    private void Instance_OnMorseCodeSelect(object sender, EventArgs e)
+    {
+        Cursor.lockState = CursorLockMode.None;
+        inputActions.Spider.Disable();
+        inputActions.PlayerMinigames.Enable();
     }
 
     private void HumanInteract_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {

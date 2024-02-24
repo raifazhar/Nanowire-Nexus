@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using System;
 
 public class wireTask : MonoBehaviour {
 
@@ -17,8 +18,17 @@ public class wireTask : MonoBehaviour {
     private List<int> avabl_LWireIndex;
     private List<int> avabl_RWireIndex;
 
+    public event EventHandler wiretaskcompleted;
+
+    public static wireTask instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start() {
 
+        gameObject.SetActive(false);
         avablColors = new List<Color>(wireColors);
         avabl_LWireIndex = new List<int>();
         avabl_RWireIndex = new List<int>();
@@ -32,9 +42,9 @@ public class wireTask : MonoBehaviour {
 
         while (avablColors.Count > 0 && avabl_LWireIndex.Count > 0 && avabl_RWireIndex.Count > 0) {
 
-            Color pickedColor = avablColors[Random.Range(0, avablColors.Count)];
-            int picked_LWireIndex = Random.Range(0, avabl_LWireIndex.Count);
-            int picked_RWireIndex = Random.Range(0, avabl_RWireIndex.Count);
+            Color pickedColor = avablColors[UnityEngine.Random.Range(0, avablColors.Count)];
+            int picked_LWireIndex = UnityEngine.Random.Range(0, avabl_LWireIndex.Count);
+            int picked_RWireIndex = UnityEngine.Random.Range(0, avabl_RWireIndex.Count);
 
             leftWires[avabl_LWireIndex[picked_LWireIndex]].SetColor(pickedColor);
             rightWires[avabl_RWireIndex[picked_RWireIndex]].SetColor(pickedColor);
@@ -58,12 +68,13 @@ public class wireTask : MonoBehaviour {
             for (int i = 0; i < rightWires.Count; i++) {
                 if (rightWires[i].isSuccess) {
                     successfulWires++;
+                    
                 }
             }
 
             if (successfulWires >= rightWires.Count) {
                 isComplete = true;
-                Debug.Log("Task Complete\n");
+                wiretaskcompleted?.Invoke(this,EventArgs.Empty);
             }
 
         }

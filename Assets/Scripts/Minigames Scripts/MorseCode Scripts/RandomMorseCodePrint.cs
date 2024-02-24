@@ -9,6 +9,7 @@ public class RandomMorseCodePrint : MonoBehaviour{
 
 
     public event EventHandler OnCorrectMorseCodeSubmit;
+  
 
     [SerializeField] private TextMeshProUGUI MorseCodeReference;
     [SerializeField] private MorsecodeAlphabetScriptableObject morsecodeScriptableObject;
@@ -16,10 +17,18 @@ public class RandomMorseCodePrint : MonoBehaviour{
 
     [SerializeField] MorsecodeGameContainer morseCodeGameContainer;
 
+    public static RandomMorseCodePrint instance ;
+
+    
 
     private string RandomWord;
     private string RandomWordCode;
     char RandomCharacter;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start() {
 
@@ -64,8 +73,9 @@ public class RandomMorseCodePrint : MonoBehaviour{
     private void InputManager_OnSubmit(object sender, EventArgs e) {
 
         if (CheckInputString()) {
-            Debug.Log("Correct");
+           
             OnCorrectMorseCodeSubmit?.Invoke(this, EventArgs.Empty);
+            
         }
         else {
             Debug.Log("Incorrect");

@@ -11,6 +11,7 @@ public class InteractCollider : MonoBehaviour
     [SerializeField] private LayerMask intereactMask;
     [SerializeField] private int numFound;
     private readonly Collider[] colliders= new Collider[2];
+    public Canvas Foward;
 
     public delegate void onNear();
     public static event onNear OnNearIntereactable;
@@ -26,6 +27,7 @@ public class InteractCollider : MonoBehaviour
             if (Intereactable!=null)
             {
                 OnNearIntereactable?.Invoke();
+                if (Input.GetKeyDown(KeyCode.E) && Foward.enabled)
                 Intereactable.interact(this);
             }
            
