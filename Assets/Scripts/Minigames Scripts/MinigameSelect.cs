@@ -34,7 +34,7 @@ public class MinigameSelect : MonoBehaviour{
 
             int Minigame = UnityEngine.Random.Range(1, 2);
 
-            Minigame = 1;
+            Minigame = 2;
 
             if (Minigame == 1) {
                 OnMorseCodeSelect?.Invoke(this, EventArgs.Empty);
