@@ -48,7 +48,7 @@ public class InteractCollider : MonoBehaviour
             {
                 Debug.Log("Door is working");
                 OnNearIntereactable?.Invoke();
-                if (Input.GetKeyDown(KeyCode.Tab))
+                if (Input.GetKeyDown(KeyCode.E))
                 Intereactable.interact(this);
             }
            

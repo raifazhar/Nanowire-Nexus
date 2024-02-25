@@ -14,8 +14,8 @@ public class SwitcherHuman_and_Player : MonoBehaviour{
     private HumanController human;
 
     private void Start() {
-        InputManager.Instance.OnHumanInteract += InputManager_OnHumanInteract;
-        InputManager.Instance.OnSpiderInteract += InputManager_OnSpiderInteract;
+        
+       
     }
 
     private void InputManager_OnSpiderInteract(object sender, EventArgs e) {

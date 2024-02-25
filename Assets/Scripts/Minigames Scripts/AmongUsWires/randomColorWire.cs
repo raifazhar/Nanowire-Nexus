@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class gloWire : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler {
 
     private Image _img;
-    private LineRenderer liRenderer;
+    public LineRenderer liRenderer;
     private Canvas canv;
     private wireTask wTask;
 

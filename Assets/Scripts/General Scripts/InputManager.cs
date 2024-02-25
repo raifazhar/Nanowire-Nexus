@@ -13,11 +13,10 @@ public class InputManager : MonoBehaviour{
     public event EventHandler OnHelpFinished;
 
     //Events for Spider
-    public event EventHandler OnSpiderInteract;
-    public event EventHandler OnChangeToPlayer;
+    
 
     //Events for Human
-    public event EventHandler OnHumanInteract;
+   
 
     //Singleton Pattern
     public static InputManager Instance { get; private set; }
@@ -42,10 +41,10 @@ public class InputManager : MonoBehaviour{
         inputActions.PlayerMinigames.Help.started += Help_Started;
         inputActions.PlayerMinigames.Help.canceled += Help_canceled;
 
-        inputActions.Spider.SwitchToHuman.performed += SwitchToHuman_performed;
-        inputActions.Spider.Interact.performed += SpiderInteract_performed;
+      
+       
 
-        inputActions.Human.HumanInteract.performed += HumanInteract_performed;
+        
 
         MinigameSelect.Instance.OnMorseCodeSelect += Instance_OnMorseCodeSelect;
         RandomMorseCodePrint.instance.OnCorrectMorseCodeSubmit += Instance_OnCorrectMorseCodeSubmit;
@@ -65,14 +64,7 @@ public class InputManager : MonoBehaviour{
         inputActions.PlayerMinigames.Enable();
     }
 
-    private void HumanInteract_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
-        
-        inputActions.Spider.Enable();
-        
-        inputActions.Human.Disable();
-        
-        OnHumanInteract?.Invoke(this, EventArgs.Empty);
-    }
+   
 
     private void Help_canceled(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
         OnHelpFinished?.Invoke(this, EventArgs.Empty);
@@ -82,19 +74,9 @@ public class InputManager : MonoBehaviour{
         OnHelpStarted.Invoke(this, EventArgs.Empty);
     }
 
-    private void SpiderInteract_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
-        inputActions.Spider.Disable();
-        
-        inputActions.Human.Enable();
-        
-        OnSpiderInteract?.Invoke(this, EventArgs.Empty);
-        
-    }
+    
 
-    private void SwitchToHuman_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
-        OnChangeToPlayer?.Invoke(this, EventArgs.Empty);
-    }
-
+   
     private void SwitchToSpider_performed(UnityEngine.InputSystem.InputAction.CallbackContext obj) {
         OnChangeToSpider?.Invoke(this, EventArgs.Empty);
     }

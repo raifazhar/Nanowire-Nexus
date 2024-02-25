@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752bd10dc9c119342aab0dcdfbe7a445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  liRenderer: {fileID: 0}
   wireCol: {r: 0, g: 0, b: 0, a: 0}
   isSuccess: 0
   isLeftWire: 0
@@ -337,6 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752bd10dc9c119342aab0dcdfbe7a445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  liRenderer: {fileID: 0}
   wireCol: {r: 0, g: 0, b: 0, a: 0}
   isSuccess: 0
   isLeftWire: 1
@@ -721,9 +723,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 1
+  m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 2
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
@@ -761,6 +763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46436a3fcb589c145bb420ac1410a137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzle: {fileID: 0}
 --- !u!1 &2535487024879740364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,6 +1338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752bd10dc9c119342aab0dcdfbe7a445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  liRenderer: {fileID: 0}
   wireCol: {r: 0, g: 0, b: 0, a: 0}
   isSuccess: 0
   isLeftWire: 1
@@ -1665,6 +1669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752bd10dc9c119342aab0dcdfbe7a445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  liRenderer: {fileID: 0}
   wireCol: {r: 0, g: 0, b: 0, a: 0}
   isSuccess: 0
   isLeftWire: 1
@@ -2091,6 +2096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752bd10dc9c119342aab0dcdfbe7a445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  liRenderer: {fileID: 0}
   wireCol: {r: 0, g: 0, b: 0, a: 0}
   isSuccess: 0
   isLeftWire: 0
@@ -2276,6 +2282,7 @@ MonoBehaviour:
   currentDraggedWire: {fileID: 0}
   currentHoveredWire: {fileID: 0}
   isComplete: 0
+  reset: 0
 --- !u!1 &5243851147217975965
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,6 +2423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752bd10dc9c119342aab0dcdfbe7a445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  liRenderer: {fileID: 0}
   wireCol: {r: 0, g: 0, b: 0, a: 0}
   isSuccess: 0
   isLeftWire: 0
@@ -2767,6 +2775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752bd10dc9c119342aab0dcdfbe7a445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  liRenderer: {fileID: 0}
   wireCol: {r: 0, g: 0, b: 0, a: 0}
   isSuccess: 0
   isLeftWire: 0
@@ -3012,6 +3021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752bd10dc9c119342aab0dcdfbe7a445, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  liRenderer: {fileID: 0}
   wireCol: {r: 0, g: 0, b: 0, a: 0}
   isSuccess: 0
   isLeftWire: 1

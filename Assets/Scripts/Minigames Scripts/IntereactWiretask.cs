@@ -11,19 +11,19 @@ public class IntereactWiretask : MonoBehaviour,IIntereactable
     public bool interact(InteractCollider interactCollider)
     {
 
-        MinigameSelect.Instance.setinteract(2);
+        MinigameSelect.Instance.setinteract(2, puzzle);
 
         return true;
     }
+
     private void Start()
     {
-        wireTask.instance.wiretaskcompleted += Instance_wiretaskcompleted;
+        MinigameSelect.Instance.OnWireEventTrigger += Instance_OnWireEventTrigger;
     }
 
-    private void Instance_wiretaskcompleted(object sender, EventArgs e)
+    private void Instance_OnWireEventTrigger(object sender, MinigameSelect.Wireeventtrigger e)
     {
-        Triggermanager.triggercall(puzzle);
+        if (puzzle == e.puzzlesend)
+            Triggermanager.triggercall(puzzle);
     }
-
-  
 }

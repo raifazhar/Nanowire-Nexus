@@ -10,17 +10,20 @@ public class IntereactMorse : MonoBehaviour, IIntereactable
     public bool interact(InteractCollider interactCollider)
     {
 
-        MinigameSelect.Instance.setinteract(1);
+        MinigameSelect.Instance.setinteract(1,puzzle);
 
         return true;
     }
     private void Start()
     {
-        RandomMorseCodePrint.instance.OnCorrectMorseCodeSubmit += Instance_OnCorrectMorseCodeSubmit;
+        MinigameSelect.Instance.OnMorseEventTrigger += Instance_OnMorseEventTrigger;
     }
 
-    private void Instance_OnCorrectMorseCodeSubmit(object sender, EventArgs e)
+    private void Instance_OnMorseEventTrigger(object sender, MinigameSelect.Morseeventtrigger e)
     {
+        if(puzzle==e.puzzlesend)
         Triggermanager.triggercall(puzzle);
     }
+
+   
 }
