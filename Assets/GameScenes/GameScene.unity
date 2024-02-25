@@ -1294,6 +1294,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scientist (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 803075052}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: attackRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1502833659}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1013218556}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1838252665}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 1122033519}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1739,7 +1767,7 @@ Transform:
   m_GameObject: {fileID: 373693667}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.11, y: 0, z: 21.03}
+  m_LocalPosition: {x: -3.11, y: -0.49, z: 21.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1788,6 +1816,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &426367095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 426367096}
+  m_Layer: 0
+  m_Name: waypoint5 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &426367096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 426367095}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -64.77, y: 0, z: -44.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1504705286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &440797140
 GameObject:
@@ -2048,6 +2107,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scientist (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 803075052}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: attackRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: playerInAttackRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1627535652}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1842365797}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 426367096}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2485,7 +2572,7 @@ Transform:
   m_GameObject: {fileID: 642443806}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.17, y: 0, z: -7.02}
+  m_LocalPosition: {x: -11.17, y: -0.49, z: -7.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3433,7 +3520,7 @@ Transform:
   m_GameObject: {fileID: 807020187}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.91, y: 0, z: -35.32}
+  m_LocalPosition: {x: -17.91, y: -0.49, z: -35.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5475,6 +5562,9 @@ Transform:
   - {fileID: 1013218556}
   - {fileID: 1838252665}
   - {fileID: 1122033519}
+  - {fileID: 1627535652}
+  - {fileID: 1842365797}
+  - {fileID: 426367096}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1510064463
@@ -5580,7 +5670,38 @@ Transform:
   m_GameObject: {fileID: 1556216003}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.5, y: 0, z: -21.3}
+  m_LocalPosition: {x: -31.5, y: -0.49, z: -21.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1504705286}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1627535651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1627535652}
+  m_Layer: 0
+  m_Name: waypoint5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1627535652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627535651}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -64.77, y: 0, z: -15.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5777,6 +5898,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scientist (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 803075052}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: attackRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1627535652}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1842365797}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 426367096}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5855,21 +6000,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 803075052}
     - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: attackRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
       propertyPath: wayPoints.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
       propertyPath: wayPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1782476218}
     - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
       propertyPath: wayPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1556216004}
     - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
       propertyPath: wayPoints.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 807020188}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6004,7 +6153,7 @@ Transform:
   m_GameObject: {fileID: 1749966181}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.27, y: 0, z: -0.2}
+  m_LocalPosition: {x: 7.27, y: -0.49, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6271,7 +6420,7 @@ Transform:
   m_GameObject: {fileID: 1782476217}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.91, y: 0, z: -7.29}
+  m_LocalPosition: {x: -17.91, y: -0.49, z: -7.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6606,7 +6755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7680654047746638249, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.49
       objectReference: {fileID: 0}
     - target: {fileID: 7680654047746638249, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6658,7 +6807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
       propertyPath: playerInSightRange
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
       propertyPath: wayPoints.Array.size
@@ -6685,6 +6834,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+--- !u!1 &1842365796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1842365797}
+  m_Layer: 0
+  m_Name: waypoint5 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1842365797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842365796}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -79.6, y: 0, z: -31.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1504705286}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1854453929
 GameObject:
   m_ObjectHideFlags: 0
@@ -7610,6 +7790,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scientist (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 803075052}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: attackRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 2059277275}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1214997866}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1206392804}
+    - target: {fileID: 8391365078047949787, guid: f9ef3679364f85b479e991759dcb706c, type: 3}
+      propertyPath: wayPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 864651090}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
