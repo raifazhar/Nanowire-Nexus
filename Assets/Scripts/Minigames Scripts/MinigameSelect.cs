@@ -9,7 +9,7 @@ public class MinigameSelect : MonoBehaviour{
 
     public event EventHandler OnMorseCodeSelect;
     public event EventHandler OnWiresSelect;
-
+    public event EventHandler onIntereact;
     
     public static MinigameSelect Instance { get; private set; }
     private void Awake() {
@@ -18,17 +18,26 @@ public class MinigameSelect : MonoBehaviour{
 
     private void Start() {
         gameObject.SetActive(false);
-        RandomMorseCodePrint.instance.OnCorrectMorseCodeSubmit += Instance_OnCorrectMorseCodeSubmit; ;
+        RandomMorseCodePrint.instance.OnCorrectMorseCodeSubmit += Instance_OnCorrectMorseCodeSubmit;
+        wireTask.instance.wiretaskcompleted += Instance_wiretaskcompleted;
+    }
+
+    private void Instance_wiretaskcompleted(object sender, EventArgs e)
+    {
+        gameObject.SetActive(false);
+        onIntereact?.Invoke(this, EventArgs.Empty);
     }
 
     private void Instance_OnCorrectMorseCodeSubmit(object sender, EventArgs e)
     {
         gameObject.SetActive(false);
+        onIntereact?.Invoke(this, EventArgs.Empty);
     }
 
     public void setinteract(int selected)
     {
         gameObject.SetActive(true);
+        onIntereact?.Invoke(this,EventArgs.Empty);
 
         int Minigame = selected;
         if (Minigame == 1)
